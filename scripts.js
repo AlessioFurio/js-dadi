@@ -3,45 +3,31 @@
 // Generare un secondo numero casuale tra 1 e 6, che sarà la seconda giocata.
 // Comunicare quali dei due utenti (tra giocatore 1 e giocatore 2) ha vinto.
 
+var arrayGiocatori = [1, 2];
+var risultato;
 
+for (var i = 0; i < arrayGiocatori.length; i++) {
 
-var contatore1 = 0;
-var contatore2 = 0;
-var numeroPartite = 10;
+    arrayGiocatori[i] = Math.floor(Math.random() * 6) + 1;
+    console.log(arrayGiocatori[i]);
 
-var vincitore1 = true;
-var vincitore2 = false;
-
-
-for (var i = 0; i < numeroPartite; i++) {
-    //genero numero random per giocatore 1
-    var giocatore1 = Math.floor(Math.random() * 6) + 1;
-
-    // genero numero random per giocatore 2
-    var giocatore2 = Math.floor(Math.random() * 6) + 1;
-
-    console.log(giocatore1);
-    console.log(giocatore2);
-
-//vittoria giocatore1
-if (giocatore1 > giocatore2) {
-    console.log('giocatore 1 ha vinto');
-    vincitore1 = true;
-    contatore1++;
+    if (arrayGiocatori[0] < arrayGiocatori[1]) {
+        risultato = false;
+    }
+    else if (arrayGiocatori[0] > arrayGiocatori[1]) {
+        risultato = true;
+    }
+    else if (arrayGiocatori[0] == arrayGiocatori[1]) {
+        risultato = null;
+    }
 }
-//pareggio
-else if (giocatore1 == giocatore2) {
-    console.log('pareggio');
-}
-//vittoria giocatore2
-else {
+
+if (risultato == false){
     console.log('giocatore 2 ha vinto');
-    vincitore2 = false;
-    contatore2++;
 }
+else if (risultato == true) {
+    console.log('giocatore 1 ha vinto');
 }
-
-    console.log('il 1 ha vinto ' + contatore1 + 'volte');
-
-
-    console.log('il 2 ha vinto ' + contatore2 + 'volte');
+else if (risultato == null) {
+    console.log('Pareggio');
+}
